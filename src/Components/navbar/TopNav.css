@@ -1,0 +1,50 @@
+.topbar {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  z-index: 999;
+  background-color: #f6f6f6;
+  color: #3e3e3e;
+  border-bottom: 1px solid #e9e9e9;
+  top: 0;
+
+  box-sizing: border-box;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.lefttopbar {
+  display: inline-block;
+  font-size: 30px;
+  display: flex;
+  height: 90px;
+  align-items: center;
+}
+.righttopbar {
+  font-size: 19px;
+  display: flex;
+  height: 90px;
+  float: left;
+  align-items: center;
+  gap: 50px;
+}
+.topbtn {
+  display: flex;
+  margin-right: 10px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+.sign {
+  border: 1px #48d9c6 solid;
+  width: 77.8px;
+  height: 32.51px;
+  left: 707.13px;
+  top: 30.77px;
+  color: #48d9c6;
+}
+.Grad {
+  color: #48d9c6;
+}

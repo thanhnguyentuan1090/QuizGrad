@@ -1,0 +1,70 @@
+.Home__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 90px;
+}
+
+.Home__img {
+  background-image: url("../../Assets/img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 885px;
+  background-size: 1100px;
+  background-position: right bottom;
+  position: absolute;
+}
+.text {
+  padding-top: 200px;
+  padding-left: 100px;
+  position: absolute;
+}
+.text1 {
+  font-size: 70px;
+  line-height: 80px;
+}
+.text2 {
+  font-size: 30px;
+  color: #48d9c6;
+  padding-top: 30px;
+}
+.StartBtn{
+    padding-top: 40px; 
+}
+.Start{
+    box-sizing: border-box;
+    margin-right: 90px;
+    border:#48d9c6 1px solid ;
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    font-size: 25px;
+    background-color:#48d9c6 ;
+    color: white;
+}
+
+.Start div{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.Know{
+    display: inline-block;
+    font-size: 25px;
+    box-sizing: border-box;
+    margin-right: 90px;
+    width: 180px;
+    height: 50px;
+    font-size: 25px;
+}
+.Know div{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
