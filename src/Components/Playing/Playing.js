@@ -5,6 +5,7 @@ import getQuestion from "../../utils/Axios.js";
 const Quiz = () => {
   const [question, setQuestion] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [seconds, setSeconds] = useState(60);
 
   useEffect(() => {
     async function fetchData() {
@@ -12,7 +13,6 @@ const Quiz = () => {
         const res = await getQuestion();
         if (res.status === 200) {
           setQuestion(res.data.data);
-          // console.log(res.data.data);
         }
       } catch (error) {
         console.log(error);
@@ -21,16 +21,30 @@ const Quiz = () => {
     fetchData();
   }, []);
 
-  const handleSkipClick = () =>{
-    if(questionIndex < question.length - 1){
-      setQuestionIndex(questionIndex + 1)
+  useEffect(() => {
+    let timer
+    if (seconds > 0) {
+      timer = setTimeout(() => {
+        setSeconds(seconds - 1);
+      }, 1000);
+    } else {
+      handleSkipClick();
     }
-  }
+    return () => {
+      clearTimeout(timer)
+    }
+  });
 
-  const handleNextClick = () =>{
-    handleSkipClick()
-  }
-  
+  const handleSkipClick = () => {
+    if (questionIndex < question.length - 1) {
+      setQuestionIndex(questionIndex + 1);
+      setSeconds(60);
+    }
+  };
+
+  const handleNextClick = () => {
+    handleSkipClick();
+  };
 
   return (
     <div className="Question">
@@ -56,27 +70,26 @@ const Quiz = () => {
         <div className="Title">
           <p>{question[questionIndex] && question[questionIndex].text}</p>
         </div>
-        <div className="answerGroup">{  
-          question[questionIndex] && question[questionIndex].answer.map((e, id) => (
+        <div className="answerGroup">
+          {question[questionIndex] &&
+            question[questionIndex].answer.map((e, id) => (
               <div className="answer" key={id}>
                 <button className="mini-tag" tabIndex="1">
                   <div>{e.context}</div>
                 </button>
               </div>
-            ))
-        }</div>
-        
-
+            ))}
+        </div>
       </div>
 
       <div className="foo">
-        <div className="clock">60</div>
+        <div className="clock">{seconds}</div>
         <div className="btnGroup">
-          <button className="next" onClick={()=>handleNextClick()}>
+          <button className="next" onClick={() => handleNextClick()}>
             <span className="caret right" />
             <span>Next</span>
           </button>
-          <button className="skip" onClick={()=>(handleSkipClick())}>
+          <button className="skip" onClick={() => handleSkipClick()}>
             <span className="caret right" />
             <span className="caret right" />
             <span>Skip</span>

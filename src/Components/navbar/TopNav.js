@@ -1,5 +1,7 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 import "./TopNav.css"
+import {Link} from 'react-router-dom';
 
 export default function TopNav() {
   return (
@@ -14,15 +16,16 @@ export default function TopNav() {
     <>
     <div className="topbar">
       <div className="lefttopbar">
-          <div className="Quizgrad"><span>Quiz</span><span className='Grad'>Grad</span> </div>
+          <Link to="/home" className='navLink'><div className="Quizgrad"><span>Quiz</span><span className='Grad'>Grad</span> </div></Link>
           </div>
       <div className="righttopbar">
       <div className="topbtn">How it work ? </div>
         <div className="topbtn">features</div>
         <div className="topbtn">About us</div>
-        <div className="topbtn sign">Sign Up</div>
+        <Link className='navLink' to="/login"><div className="topbtn sign">Login</div></Link>
     </div>
     </div>
+    <Outlet></Outlet>
     </>
   );
   

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import {Link} from "react-router-dom";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
               | we help you prepare for exam and Quizes{" "}
             </div>
             <div className="StartBtn">
-            <div className="Start"> <div>Start solving</div> </div>
+            <Link className="navLink" to="/playing"><div className="Start"> <div>Start solving</div> </div></Link>
             <div className="Know"><div>Know more</div></div>
           </div>
           </div>
